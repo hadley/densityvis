@@ -3,5 +3,5 @@
 #' Efficient routines for binning data in one and two dimensions.
 #'
 #' @docType package
-#' @imports plyr
+#' @imports plyr hexbin
 NULL

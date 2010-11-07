@@ -13,16 +13,16 @@ interval_bin <- function(x, weight = NULL, breaks = interval_breaks(x), drop = F
 
   # Check weights, and throw out missing values and zero-weight observations
   if (is.null(weight)) {
-    weight <- rep(1, length(x))
+    weight <- rep.int(1, length(x))
   } else {
     weight[is.na(weight)] <- 0
   }
   
+  if (all(missing | weight == 0)) return()  
   x <- x[!missing & weight > 0]  
-  if (length(x) == 0) return()
   
   bin <- findInterval(x, breaks, all.inside = TRUE)
-  count <- vaggregate(weight, bins, sum, na.rm = TRUE, .default = 0))
+  count <- vaggregate(weight, bin, sum, na.rm = TRUE, .default = 0)
   
   data.frame(
     left = breaks[-length(breaks)],
