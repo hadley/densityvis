@@ -4,4 +4,5 @@
 #'
 #' @docType package
 #' @imports plyr hexbin
+#' @alias package-bin bin
 NULL
