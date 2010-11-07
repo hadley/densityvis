@@ -1,0 +1,5 @@
+import(plyr, hexbin)
+export(interval_bin)
+export(interval_breaks)
+export(rect_bin)
+export(rect_breaks)
