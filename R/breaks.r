@@ -35,3 +35,13 @@ interval_breaks <- function(nbins = 20, binwidth = NULL, origin = NULL, range = 
     sort(breaks) + fuzz
   } 
 }
+
+sturges_breaks <- function() {
+  function(x) interval_breaks(nclass.Sturges(x))(x)
+}
+scott_breaks <- function() {
+  function(x) interval_breaks(nclass.scott(x))(x)
+}
+fd_breaks <- function() {
+  function(x) interval_breaks(nclass.FD(x))(x)
+}
