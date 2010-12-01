@@ -7,5 +7,5 @@ Maintainer: Hadley Wickham <h.wickham@gmail.com>
 Description:
 Imports: plyr
 License: MIT
-Collate: 'bin.r' 'breaks.r' 'cut.r' 'hex.r' 'interval.r'
-    'rect.r' 'utils.r'
+Collate: 'bin.r' 'breaks.r' 'cut.r' 'dhist.r' 'hex.r'
+    'interval.r' 'rect.r' 'utils.r'
