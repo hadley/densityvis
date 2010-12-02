@@ -6,6 +6,8 @@ Author: Hadley Wickham <h.wickham@gmail.com>
 Maintainer: Hadley Wickham <h.wickham@gmail.com>
 Description:
 Imports: plyr
+Suggests: locfit
 License: MIT
 Collate: 'bin-hex.r' 'bin-interval.r' 'bin-rect.r' 'bin.r'
-    'breaks-dhist.r' 'breaks.r' 'cut.r' 'utils.r'
+    'breaks-dhist.r' 'breaks.r' 'cut.r' 'density-kernel.r'
+    'density-local.r' 'utils.r'
