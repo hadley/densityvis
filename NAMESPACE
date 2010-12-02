@@ -1,5 +1,5 @@
 export(interval_bin)
 export(bins, <-, rect_bin(runif(1000),, runif(1000)), ggplot(bins), +, geom_rect(aes(xmin, =, left,, xmax, =, right,, ymin, =, bottom,, ymax, =, top,, fill, =, count)))
 import(plyr, hexbin)
-export(dhist)
+export(dhist_breaks)
 export(interval_breaks)

@@ -2,13 +2,13 @@
 #' An another algorithm for computing histogram breaks.  Produces 
 #' irregular bins.
 #'
-#' @authors Lorraine Denby
+#' @author Lorraine Denby
 #' @references \url{http://pubs.research.avayalabs.com/pdfs/ALR-2007-003-paper.pdf}
 #' @export
 #' @examples 
 #' hist(mtcars$mpg, breaks=dhist)
 #' hist(mtcars$mpg, breaks=dhist(mtcars$mpg, a=500))
-dhist <- function(x, a=5*diff(quantile(x, c(0.25,0.75))), nbins=10, rx = range(x)) {
+dhist_breaks <- function(x, a=5*diff(quantile(x, c(0.25,0.75))), nbins=10, rx = range(x)) {
   x <- sort(x)
   if(a == 0)
     a <- diff(range(x))/100000000
