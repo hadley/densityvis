@@ -1,6 +1,7 @@
 export(interval_bin)
 S3method(plot, interval_bin)
 export(rect_bin)
+S3method(plot, rect_bin)
 import(plyr, hexbin)
 export(dhist_breaks)
 export(interval_breaks)

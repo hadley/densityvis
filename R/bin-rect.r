@@ -1,51 +1,60 @@
-#' Bin data into rectangles (2d)
+#' Bin data into rectangles (2d).
 #'
+#' @param x a numeric vector of x positions
+#' @param y a numeric vector of y positions
+#' @param weight \code{NULL} or a numeric vector providing weights for each
+#'   observation
+#' @param breaks a break function, or a vector of break points that should
+#'   enclose all x values.
+#' @param breaks a break function, or a vector of break points that should
+#'   enclose all y values.
+#' @param na.rm If \code{TRUE} missing values will be silently removed, 
+#'   otherwise they will be removed with a warning.
 #' @export
+#' @S3method plot rect_bin
 #' @examples
-#' bins <- rect_bin(runif(1000), runif(1000))
-#' ggplot(bins) + geom_rect(aes(xmin = left, xmax = right, ymin = bottom, ymax = top, fill = count))
-rect_bin <- function(x, y, weight = NULL, xbreaks = interval_breaks(), ybreaks = interval_breaks(), drop = FALSE, na.rm = FALSE) {
+#' x <- rnorm(1e5)
+#' y <- rnorm(1e5)
+#' bins <- rect_bin(x, y)
+#' plot(bins)
+#' 
+#' # Specifying bin widths
+#' rect_bin(x, y, 
+#'   xbreaks = interval_breaks(binwidth = 0.5), 
+#'   ybreaks = interval_breaks(binwidth = 0.5))
+rect_bin <- function(x, y, weight = NULL, xbreaks = interval_breaks(), ybreaks = interval_breaks(), na.rm = FALSE) {
+  
+  data <- clean_xy(x, y, weight)
     
-  # If !na.rm, remove missing values with a warning.  
-  # Otherwise just remove them
-  missing <- is.na(x) | is.na(y)
-  nmissing <- sum(missing)
-  if (!na.rm && nmissing > 0) {
-    warning("Removing ", nmissing, " missing values")
-  }
-
-  # Check weights, and throw out missing values and zero-weight observations
-  if (is.null(weight)) {
-    weight <- rep.int(1, length(x))
-  } else {
-    weight[is.na(weight)] <- 0
-  }
+  if (is.function(xbreaks)) xbreaks <- xbreaks(data$x)
+  if (is.function(ybreaks)) ybreaks <- ybreaks(data$y)
   
-  ok <- !missing & weight > 0
-  if (all(!ok)) return()  
-  if (any(!ok)) {
-    x <- x[!ok]
-    y <- y[!ok]    
-  }
-  
-  if (is.function(xbreaks)) xbreaks <- xbreaks(x)
-  if (is.function(ybreaks)) ybreaks <- ybreaks(y)
-  
-  xbin <- findInterval(x, xbreaks, all.inside = TRUE)
-  ybin <- findInterval(y, ybreaks, all.inside = TRUE)
+  xbin <- findInterval(data$x, xbreaks, all.inside = TRUE)
+  ybin <- findInterval(data$y, ybreaks, all.inside = TRUE)
   
   xn <- length(xbreaks)
   yn <- length(ybreaks)
+  
   bin <- (xbin - 1L) + (ybin - 1L) * (xn - 1L) + 1L
-
-  count <- vaggregate(weight, bin, sum, na.rm = TRUE, 
+  count <- vaggregate(data$weight, bin, sum, na.rm = TRUE, 
     .default = 0, .n = (xn - 1L) * (yn - 1L))
   
-  data.frame(
+  structure(data.frame(
     top =    rep(ybreaks[-yn], xn - 1), 
     bottom = rep(ybreaks[-1],  xn - 1), 
     left =   rep(xbreaks[-xn], each = yn - 1),
     right =  rep(xbreaks[-1],  each = yn - 1),
     count = count
-  )
+  ), class = c("rect_bin", "data.frame"))
+}
+
+plot.rect_bin <- function(x, ...) {
+  x <- subset(x, count > 0)
+  
+  xlim <- range(x$left, x$right)
+  ylim <- range(x$top, x$bottom)
+  
+  plot(xlim, ylim, type = "n")
+  with(x, rect(left, bottom, right, top))
+  with(x, text((left + right) / 2, (top + bottom) / 2, count, cex = 0.5))
 }

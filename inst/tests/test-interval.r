@@ -1,4 +1,4 @@
-context("Intervals")
+context("Interval binning")
 
 test_that("Counts agree with hist", {
   x <- runif(100)
