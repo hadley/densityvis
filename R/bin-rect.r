@@ -1,6 +1,7 @@
 #' Bin data into rectangles (2d)
 #'
 #' @export
+#' @examples
 #' bins <- rect_bin(runif(1000), runif(1000))
 #' ggplot(bins) + geom_rect(aes(xmin = left, xmax = right, ymin = bottom, ymax = top, fill = count))
 rect_bin <- function(x, y, weight = NULL, xbreaks = interval_breaks(), ybreaks = interval_breaks(), drop = FALSE, na.rm = FALSE) {

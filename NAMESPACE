@@ -1,6 +1,6 @@
 export(interval_bin)
 S3method(plot, interval_bin)
-export(bins, <-, rect_bin(runif(1000),, runif(1000)), ggplot(bins), +, geom_rect(aes(xmin, =, left,, xmax, =, right,, ymin, =, bottom,, ymax, =, top,, fill, =, count)))
+export(rect_bin)
 import(plyr, hexbin)
 export(dhist_breaks)
 export(interval_breaks)

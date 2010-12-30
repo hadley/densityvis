@@ -5,7 +5,7 @@
 #' technique is adapted from \code{\link{hist}}.
 #'
 #' @export
-interval_breaks <- function(nbins = 20, binwidth = NULL, origin = NULL, range = NULL, right = TRUE) {
+interval_breaks <- function(bins = 20, binwidth = NULL, origin = NULL, range = NULL, right = TRUE) {
   
   function(x) {
     # If x is an integer, place breaks between values
@@ -18,7 +18,7 @@ interval_breaks <- function(nbins = 20, binwidth = NULL, origin = NULL, range = 
     if (diff(range) < 1e-07) return(range)
 
     if (is.null(binwidth)) {
-      binwidth <- diff(range) / nbins
+      binwidth <- diff(range) / bins
       message("Using binwidth ", format(binwidth, digits = 3))
     }
 

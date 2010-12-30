@@ -1,4 +1,4 @@
-hex_bin <- function(x, y, binwidth = hex_binwidth(range(x), range(y))) {
+hex_bin <- function(x, y, weight, binwidth = hex_binwidth(range(x), range(y))) {
   # Convert binwidths into bounds + nbins
   xbnds <- c(
     round_any(min(x), binwidth[1], floor) - 1e-6, 
