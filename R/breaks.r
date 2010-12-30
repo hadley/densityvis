@@ -1,11 +1,7 @@
 #' Calculate breaks for interval (1d) bins.
 #'
-#' To deal with floating point rounding issues, bin positions are rounded
-#' slighty up or slightly down (depending on right vs. left bins).  This 
-#' technique is adapted from \code{\link{hist}}.
-#'
 #' @export
-interval_breaks <- function(bins = 20, binwidth = NULL, origin = NULL, range = NULL, right = TRUE) {
+interval_breaks <- function(bins = 20, binwidth = NULL, origin = NULL, range = NULL) {
   
   function(x) {
     # If x is an integer, place breaks between values
@@ -27,16 +23,8 @@ interval_breaks <- function(bins = 20, binwidth = NULL, origin = NULL, range = N
     } else {
       breaks <- seq(origin, max(range) + binwidth, binwidth)
     }
-
-    # Adapt break fuzziness from base::hist - this protects from floating
-    # point rounding errors
-    diddle <- 1e-07 * binwidth
-    if (right) {
-      fuzz <- c(-diddle, rep.int(diddle, length(breaks) - 1))
-    } else {
-      fuzz <- c(rep.int(-diddle, length(breaks) - 1), diddle) 
-    }
-    sort(breaks) + fuzz
+    
+    breaks
   } 
 }
 
