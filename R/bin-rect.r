@@ -22,12 +22,14 @@
 #' rect_bin(x, y, 
 #'   xbreaks = interval_breaks(binwidth = 0.5), 
 #'   ybreaks = interval_breaks(binwidth = 0.5))
-rect_bin <- function(x, y, weight = NULL, xbreaks = interval_breaks(), ybreaks = interval_breaks(), na.rm = FALSE) {
+rect_bin <- function(x, y, weight = NULL, xbreaks = interval_breaks(), ybreaks = interval_breaks(), na.rm = FALSE, xopen = "right", yopen = "right") {
   
   data <- clean_xy(x, y, weight)
     
   if (is.function(xbreaks)) xbreaks <- xbreaks(data$x)
   if (is.function(ybreaks)) ybreaks <- ybreaks(data$y)
+  xbreaks <- adjust_breaks(xbreaks, xopen)
+  ybreaks <- adjust_breaks(xbreaks, yopen)
   
   xbin <- findInterval(data$x, xbreaks, all.inside = TRUE)
   ybin <- findInterval(data$y, ybreaks, all.inside = TRUE)
