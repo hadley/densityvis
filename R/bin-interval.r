@@ -11,6 +11,8 @@
 #' @param breaks a vector of break points that should enclose all x values
 #' @param na.rm If \code{TRUE} missing values will be silently removed, 
 #'   otherwise they will be removed with a warning.
+#' @param open are intervals open on the \code{"left"} or the \code{"right"}.
+#'   This can make a big difference when your data is more discrete.
 #' @return A data frame with three columns:
 #'   \item{left}{the left end of the interval}
 #'   \item{right}{the right end of the interval}

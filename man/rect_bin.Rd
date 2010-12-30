@@ -2,7 +2,8 @@
 \alias{rect_bin}
 \title{Bin data into rectangles (2d).}
 \usage{rect_bin(x, y, weight, xbreaks=interval_breaks(),
-    ybreaks=interval_breaks(), na.rm=FALSE)}
+    ybreaks=interval_breaks(), na.rm=FALSE, xopen="right",
+    yopen="right")}
 
 \description{
   Bin data into rectangles (2d).
@@ -16,6 +17,8 @@ observation}
 enclose all x values.}
   \item{breaks}{a break function, or a vector of break points that should
 enclose all y values.}
+  \item{xopen}{are x intervals open on the \code{"left"} or \code{"right"}.}
+  \item{xopen}{are y intervals open on the \code{"left"} or \code{"right"}.}
   \item{na.rm}{If \code{TRUE} missing values will be silently removed, 
 otherwise they will be removed with a warning.}
 }

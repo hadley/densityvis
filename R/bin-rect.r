@@ -8,6 +8,8 @@
 #'   enclose all x values.
 #' @param breaks a break function, or a vector of break points that should
 #'   enclose all y values.
+#' @param xopen are x intervals open on the \code{"left"} or \code{"right"}.
+#' @param xopen are y intervals open on the \code{"left"} or \code{"right"}.
 #' @param na.rm If \code{TRUE} missing values will be silently removed, 
 #'   otherwise they will be removed with a warning.
 #' @export

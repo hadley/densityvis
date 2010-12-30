@@ -2,17 +2,17 @@
 \alias{interval_bin}
 \title{Bin data into intervals (1d).}
 \usage{interval_bin(x, weight, breaks=interval_breaks(),
-    na.rm=FALSE)}
+    na.rm=FALSE, open="right")}
 
 \description{
   Bin data into intervals (1d).
 }
 
 \details{
-  There is no argument to \code{interval_bin} that
-  specifies whether the intervals are right-open or
-  left-open, because the breaks should specify this using
-  small floating point adjustments.
+  To deal with floating point rounding issues, bin
+  positions are rounded slighty up or slightly down
+  (depending on whether \code{open} is right or left). This
+  technique is adapted from \code{\link{hist}}.
 }
 \value{A data frame with three columns:
 \item{left}{the left end of the interval}
@@ -25,6 +25,8 @@ observation}
   \item{breaks}{a vector of break points that should enclose all x values}
   \item{na.rm}{If \code{TRUE} missing values will be silently removed, 
 otherwise they will be removed with a warning.}
+  \item{open}{are intervals open on the \code{"left"} or the \code{"right"}.
+This can make a big difference when your data is more discrete.}
 }
 \examples{x <- interval_bin(runif(100))
 # Simple plot methoded included in package
