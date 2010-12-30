@@ -2,7 +2,7 @@
 clean_x <- function(x, weight = NULL, na.rm = TRUE) {
   # If !na.rm, remove missing values with a warning.
   # Otherwise just remove them
-  missing <- is.finite(x)
+  missing <- !is.finite(x)
   nmissing <- sum(missing)
   if (!na.rm && nmissing > 0) {
     warning("Removing ", nmissing, " missing values")
@@ -25,7 +25,7 @@ clean_x <- function(x, weight = NULL, na.rm = TRUE) {
 clean_xy <- function(x, y, weight = NULL, na.rm = TRUE) {
   # If !na.rm, remove missing values with a warning.  
   # Otherwise just remove them
-  missing <- is.finite(x) | is.finite(y)
+  missing <- !is.finite(x) | !is.finite(y)
   nmissing <- sum(missing)
   if (!na.rm && nmissing > 0) {
     warning("Removing ", nmissing, " missing values")
