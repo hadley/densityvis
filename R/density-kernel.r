@@ -33,7 +33,8 @@ kernel_density <- function(x, grid, w = 1, scale = TRUE, h = "bw.nrd", n = 512, 
       message("Using bandwidth ", format(h, digits = 3))
     }
     
-    d <- density(x, weights = w, bw = h, from = min(grid), to = max(grid))
+    d <- density(x, weights = w, bw = h, from = min(grid), to = max(grid), 
+      n = n)
     approx(d$x, d$y, grid)$y
   } else {
     # 2d case: use modified version of kde2d
