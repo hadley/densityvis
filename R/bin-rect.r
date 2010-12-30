@@ -53,12 +53,14 @@ rect_bin <- function(x, y, weight = NULL, xbreaks = interval_breaks(), ybreaks =
 }
 
 plot.rect_bin <- function(x, ...) {
+  require("scales")
   x <- subset(x, count > 0)
   
   xlim <- range(x$left, x$right)
   ylim <- range(x$top, x$bottom)
+  col <- cscale(x$count, seq_gradient_pal(low = "grey95", high = "black"))
   
   plot(xlim, ylim, type = "n")
-  with(x, rect(left, bottom, right, top))
+  with(x, rect(left, bottom, right, top, col = col, border = NA))
   with(x, text((left + right) / 2, (top + bottom) / 2, count, cex = 0.5))
 }
