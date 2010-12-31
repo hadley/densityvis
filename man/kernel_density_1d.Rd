@@ -1,11 +1,11 @@
 \name{kernel_density_1d}
 \alias{kernel_density_1d}
-\title{Kernel density estimates.}
+\title{1d dernel density estimate.}
 \usage{kernel_density_1d(x, weight, bandwidth="bw.nrd",
     kernel="gaussian", n=512, na.rm=FALSE)}
 
 \description{
-  Kernel density estimates.
+  1d dernel density estimate.
 }
 
 \details{

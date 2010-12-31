@@ -1,4 +1,4 @@
-#' Kernel density estimates.
+#' 1d dernel density estimate.
 #' 
 #' Offers less flexibility than \code{\link{local_density}} but can be much
 #' faster and has no external dependencies.
@@ -35,8 +35,23 @@ kernel_density_1d <- function(x, weight = NULL, bandwidth = "bw.nrd", kernel = "
   structure(predict, xlim = range(d$x), class = "density_1d")
 }
 
-
-kernel_density_2d <- function(x, y, weights = 1, scale = TRUE, xbandwidth = "bw.nrd", ybandwidth = "bw.nrd", n = 512, na.rm = FALSE) {
+#' 2d dernel density estimate.
+#' 
+#' @param x a numeric vector of x positions
+#' @param y a numeric vector of y positions
+#' @param weight \code{NULL} or a numeric vector providing weights for each
+#'   observation
+#' @param xbandwidth bandwith for x direction.  Either a number or a 
+#'   function to calculate the binwidth from the data.
+#' @param ybandwidth bandwith for y direction.  Either a number or a 
+#'   function to calculate the binwidth from the data.
+#' @param na.rm If \code{TRUE} missing values will be silently removed, 
+#'   otherwise they will be removed with a warning.
+#' @export
+#' @examples
+#' dens <- kernel_density_2d(baseball$g, baseball$ab)
+#' plot(dens)
+kernel_density_2d <- function(x, y, weight = NULL, xbandwidth = "bw.nrd", ybandwidth = "bw.nrd", na.rm = FALSE) {
   
   data <- clean_xy(x, y, weight, na.rm = TRUE)
   n_in <- nrow(data)
@@ -45,15 +60,18 @@ kernel_density_2d <- function(x, y, weights = 1, scale = TRUE, xbandwidth = "bw.
   yh <- compute_bandwidth(ybandwidth, data$y)
   
   # From http://web.mit.edu/piantado/www/blog/nonindep-density.R
-  function(x, y) {
-    n_in <- length(x)
+  predict <- function(x, y) {
+    n_out <- length(x)
 
     ax <- outer(x, data$x, "-") / xh
     ay <- outer(y, data$y, "-") / yh
-    matrix(dnorm(ax) * dnorm(ay), n_out, n_in) * 
-      matrix(w, nrow = n_out, ncol = n_in) / (sum(w) * xh * yh)
-    
+    rowSums(matrix(stats::dnorm(ax) * stats::dnorm(ay), n_out, n_in) * 
+      matrix(data$w, nrow = n_out, ncol = n_in) / (sum(data$w) * xh * yh))
   }
+
+  structure(predict, class = "density_2d",
+    xlim = range(x) + 3 * c(-1, 1) * xh,
+    ylim = range(y) + 3 * c(-1, 1) * yh)
 }
 
 compute_bandwidth <- function(bw, x) {
