@@ -1,4 +1,4 @@
-#' Calculate breaks for interval (1d) bins.
+#' Pick breaks for interval (1d) bins.
 #'
 #' @export
 interval_breaks <- function(bins = 20, binwidth = NULL, origin = NULL, range = NULL) {
@@ -28,12 +28,23 @@ interval_breaks <- function(bins = 20, binwidth = NULL, origin = NULL, range = N
   } 
 }
 
+#' Pick breaks automatically using Sturges' rule
+#'
+#' @export
 sturges_breaks <- function() {
   function(x) interval_breaks(nclass.Sturges(x))(x)
 }
+
+#' Pick breaks automatically using Scott's rule
+#'
+#' @export
 scott_breaks <- function() {
   function(x) interval_breaks(nclass.scott(x))(x)
 }
+
+#' Pick breaks automatically using the Freedman-Diaconis rule
+#'
+#' @export
 fd_breaks <- function() {
   function(x) interval_breaks(nclass.FD(x))(x)
 }

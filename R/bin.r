@@ -5,4 +5,6 @@
 #' @docType package
 #' @import plyr hexbin
 #' @aliases package-bin bin
+#' @S3method plot density_1d
+#' @S3method plot density_2d
 NULL

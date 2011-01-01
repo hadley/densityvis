@@ -3,8 +3,6 @@
 # 
 # @arguments range
 # @arguments interval size
-# @keyword internal
-# @seealso \code{\link{reshape}{round_any}}
 fullseq <- function(range, size, pad = FALSE) {
   if (diff(range) < 1e-6) return(c(range[1] - size / 2, range[1] + size / 2))
   

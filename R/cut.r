@@ -7,6 +7,7 @@
 #' @param ... other arguments passed on to \code{\link{cut}}
 #' @keywords manip
 #' @seealso \code{\link{cut_number}}
+#' @export
 #' @examples 
 #' table(cut_interval(1:100, n = 10))
 #' table(cut_interval(1:100, n = 11))
@@ -24,6 +25,7 @@ cut_interval <- function(x, n = NULL, length = NULL, ...) {
 #' @param ... other arguments passed on to \code{\link{cut}}
 #' @keywords manip
 #' @seealso \code{\link{cut_interval}}
+#' @export
 #' @examples 
 #' table(cut_number(runif(1000), n = 10))
 cut_number <- function(x, n = NULL, ...) {
