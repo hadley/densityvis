@@ -53,7 +53,10 @@ rect_bin <- function(x, y, weight = NULL, xbreaks = interval_breaks(), ybreaks =
 }
 
 plot.rect_bin <- function(x, ...) {
-  require("scales")
+  if (!require("scales")) {
+    message("Scales package required for plotting 2d densities")
+    return()
+  }
   x <- subset(x, count > 0)
   
   xlim <- range(x$left, x$right)
