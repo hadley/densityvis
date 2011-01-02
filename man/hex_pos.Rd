@@ -1,12 +1,19 @@
 \name{hex_pos}
 \alias{hex_pos}
-\title{Figure which hexagon each point belongs to.}
+\title{Find centre of closest hexagon.}
 \usage{hex_pos(x, y, width, height)}
 
 \description{
-  Figure which hexagon each point belongs to.
+  Find centre of closest hexagon.
 }
 \value{matrix giving position of closest hexagon center}
+\keyword{internal}
+\arguments{
+  \item{x}{numeric x position}
+  \item{y}{numeric y position}
+  \item{width}{of hexagon}
+  \item{height}{of hexagon}
+}
 \examples{x <- runif(1e4)
 y <- runif(1e4)
 res <- hex_pos(x, y, 0.5, 0.5)

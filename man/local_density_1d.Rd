@@ -40,6 +40,8 @@ e.g. for confidence bands and some bandwidth selectors.}
   \item{degree}{degree of polynomial used for smoothing}
   \item{bounded}{if \code{TRUE} bound density to range of data, otherwise
 bound to range of grid.}
+  \item{scale}{if \code{TRUE} rescale \code{x} values to have standard 
+deviation 1.}
 }
 \examples{dens <- local_density_1d(baseball$g)
 plot(dens)

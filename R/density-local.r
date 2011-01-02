@@ -26,6 +26,8 @@
 #' @param degree degree of polynomial used for smoothing
 #' @param bounded if \code{TRUE} bound density to range of data, otherwise
 #'    bound to range of grid.
+#' @param scale if \code{TRUE} rescale \code{x} values to have standard 
+#'   deviation 1.
 #' @return a function of a single that returns the density at that location
 #' @seealso "Local Regression and Likelihood," C. Loader.  Springer, 1999.
 #' @examples
