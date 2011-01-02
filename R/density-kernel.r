@@ -1,6 +1,6 @@
 #' 1d dernel density estimate.
 #' 
-#' Offers less flexibility than \code{\link{local_density}} but can be much
+#' Offers less flexibility than \code{\link{local_density_1d}} but can be much
 #' faster and has no external dependencies.
 #' 
 #' 1d case uses linear interpolation on the results of \code{\link{density}}.

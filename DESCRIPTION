@@ -4,8 +4,8 @@ Title: Bin data into intervals, rectangles and hexagons.
 Version: 0.0.0
 Author: Hadley Wickham <h.wickham@gmail.com>
 Maintainer: Hadley Wickham <h.wickham@gmail.com>
-Description:
-Imports: plyr
+Description: 
+Imports: plyr (>= 1.4)
 Suggests: locfit, scales
 License: MIT
 Collate: 'bin-hex.r' 'bin-interval.r' 'bin-rect.r' 'bin.r'

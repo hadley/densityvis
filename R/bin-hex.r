@@ -6,8 +6,8 @@
 #'   observation
 #' @param height height of each hexagon, if \code{NULL} computed from ybins
 #' @param width width of each hexagon, if \code{NULL} computed from ybins
-#' @param xbin number of horizontal bins, if \code{width} unspecified
-#' @param ybin number of vertical bins, if \code{height} unspecified
+#' @param xbins number of horizontal bins, if \code{width} unspecified
+#' @param ybins number of vertical bins, if \code{height} unspecified
 #' @param na.rm If \code{TRUE} missing values will be silently removed, 
 #'   otherwise they will be removed with a warning.
 #' @export
