@@ -13,8 +13,14 @@
 #' table(cut_interval(1:100, n = 11))
 #' table(cut_interval(1:100, length = 10))
 cut_interval <- function(x, n = NULL, length = NULL, ...) {
-  cut(x, interval_breaks(x, bins = n, binwidth = length), 
-    include.lowest = TRUE, ...)
+  rng <- range(x)
+  if (!is.null(length)) {
+    breaks <- fullseq(rng, length)
+  } else {
+    breaks <- seq(rng[1], rng[2], length = n + 1)
+  }
+  
+  cut(x, breaks, include.lowest = TRUE, ...)
 }
 
 #' Discretise continuous variable, equal number of points.
@@ -27,6 +33,7 @@ cut_interval <- function(x, n = NULL, length = NULL, ...) {
 #' @seealso \code{\link{cut_interval}}
 #' @export
 #' @examples 
+#' table(cut_number(runif(1000), n = 5))
 #' table(cut_number(runif(1000), n = 10))
 cut_number <- function(x, n = NULL, ...) {
   probs <- seq(0, 1, length = n + 1)

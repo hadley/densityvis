@@ -15,4 +15,5 @@
   \item{n}{number of intervals to create}
   \item{...}{other arguments passed on to \code{\link{cut}}}
 }
-\examples{table(cut_number(runif(1000), n = 10))}
+\examples{table(cut_number(runif(1000), n = 5))
+table(cut_number(runif(1000), n = 10))}
