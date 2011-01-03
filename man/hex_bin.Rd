@@ -19,8 +19,8 @@ and attributes \code{width} and \code{height}.}
 observation}
   \item{height}{height of each hexagon, if \code{NULL} computed from ybins}
   \item{width}{width of each hexagon, if \code{NULL} computed from ybins}
-  \item{xbin}{number of horizontal bins, if \code{width} unspecified}
-  \item{ybin}{number of vertical bins, if \code{height} unspecified}
+  \item{xbins}{number of horizontal bins, if \code{width} unspecified}
+  \item{ybins}{number of vertical bins, if \code{height} unspecified}
   \item{na.rm}{If \code{TRUE} missing values will be silently removed, 
 otherwise they will be removed with a warning.}
 }

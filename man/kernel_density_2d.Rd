@@ -7,6 +7,13 @@
 \description{
   2d dernel density estimate.
 }
+
+\details{
+  Only normal kernel/weight function currently implemented.
+  This function is based on \code{\link[MASS]{kde2d}} but
+  extended to allow weights, and to compute density at
+  arbitrary position.
+}
 \arguments{
   \item{x}{a numeric vector of x positions}
   \item{y}{a numeric vector of y positions}

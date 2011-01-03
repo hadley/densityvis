@@ -6,14 +6,12 @@
 #' 1d case uses linear interpolation on the results of \code{\link{density}}.
 #' 2d case uses a modified version of \code{\link[MASS]{kde2d}}.
 #'
-#' Only normal kernel/weight function currently implemented.
-#'
 #' @param x a numeric vector of positions
 #' @param weight \code{NULL} or a numeric vector providing weights for each
 #'   observation
 #' @param bandwidth the banwidth. Either a numeric vector, or function that
 #'   computes the binwidth given the data.
-#  @param kernel the kernel used for smoothing. Defaults to 
+#' @param kernel the kernel used for smoothing. Defaults to 
 #'   \code{"gaussian"}. See \code{\link{density}} for full list
 #' @param n number of points to use for interpolation
 #' @param na.rm If \code{TRUE} missing values will be silently removed, 
@@ -36,6 +34,10 @@ kernel_density_1d <- function(x, weight = NULL, bandwidth = "bw.nrd", kernel = "
 }
 
 #' 2d dernel density estimate.
+#'
+#' Only normal kernel/weight function currently implemented.  This function
+#' is based on \code{\link[MASS]{kde2d}} but extended to allow weights, and
+#' to compute density at arbitrary position.
 #' 
 #' @param x a numeric vector of x positions
 #' @param y a numeric vector of y positions

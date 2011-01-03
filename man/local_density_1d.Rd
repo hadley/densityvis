@@ -26,6 +26,9 @@
 \value{a function of a single that returns the density at that location}
 \seealso{"Local Regression and Likelihood," C. Loader.  Springer, 1999.}
 \arguments{
+  \item{x}{a numeric vector of x positions}
+  \item{weight}{\code{NULL} or a numeric vector providing weights for each
+observation}
   \item{nn}{span, or nearest neighbour fraction, the proportion of the total
 observations used in predict}
   \item{h}{constant bandwidth. Use if you want a constant bandwith, rather
@@ -38,10 +41,12 @@ otherwise, it's in the units of the data.}
 ‘"gauss"’. Choices may be restricted when derivatives are required;
 e.g. for confidence bands and some bandwidth selectors.}
   \item{degree}{degree of polynomial used for smoothing}
-  \item{bounded}{if \code{TRUE} bound density to range of data, otherwise
-bound to range of grid.}
+  \item{bounded}{if \code{TRUE} bounds density to range of data, otherwise
+it takes non-zero values over the entire real line.}
   \item{scale}{if \code{TRUE} rescale \code{x} values to have standard 
 deviation 1.}
+  \item{na.rm}{If \code{TRUE} missing values will be silently removed, 
+otherwise they will be removed with a warning.}
 }
 \examples{dens <- local_density_1d(baseball$g)
 plot(dens)
