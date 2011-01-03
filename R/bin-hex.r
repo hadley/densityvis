@@ -21,6 +21,7 @@
 #' plot(hex_bin(runif(1e4), runif(1e4)))
 #' plot(hex_bin(rnorm(1e4), rnorm(1e4)))
 #' 
+#' data(baseball, package = "plyr")
 #' bin <- hex_bin(baseball$g, baseball$ab)
 hex_bin <- function(x, y, weight = NULL, width = NULL, height = NULL, xbins = 20, ybins = 20, na.rm = FALSE) {
   

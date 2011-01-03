@@ -43,9 +43,9 @@ dhist_breaks <- function(a = NULL, nbins = 10, rx = NULL) {
 
       cmtx <- cbind(
         cut(yupper, breaks = ybr), 
-        cut(yupper, breaks = ybr, left.include = T), 
+        cut(yupper, breaks = ybr, left.include = TRUE), 
         cut(ylower, breaks = ybr),
-        cut(ylower, breaks = ybr, left.include = T)
+        cut(ylower, breaks = ybr, left.include = TRUE)
       )
       cmtx[1, 3] <- cmtx[1, 4] <- 1
       # to replace NAs when default r is used
@@ -82,7 +82,7 @@ dhist_breaks <- function(a = NULL, nbins = 10, rx = NULL) {
         (1:(nbins - 1)) * bin.size, rule = 2)$y, 
         max(x)
       )
-      aa <- hist(x, breaks = cut.pt, plot = F, probability = T)
+      aa <- hist(x, breaks = cut.pt, plot = FALSE, probability = TRUE)
       xbr <- aa$breaks
     }
     xbr

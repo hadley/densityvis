@@ -31,7 +31,8 @@ it takes non-zero values over the entire real plane.}
   \item{na.rm}{If \code{TRUE} missing values will be silently removed, 
 otherwise they will be removed with a warning.}
 }
-\examples{dens <- local_density_2d(baseball$g, baseball$ab)
+\examples{data(baseball, package = "plyr")
+dens <- local_density_2d(baseball$g, baseball$ab)
 plot(dens)
 
 plot(local_density_2d(baseball$g, baseball$ab, nn = 0.4))

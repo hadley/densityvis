@@ -26,5 +26,6 @@ function to calculate the binwidth from the data.}
   \item{na.rm}{If \code{TRUE} missing values will be silently removed, 
 otherwise they will be removed with a warning.}
 }
-\examples{dens <- kernel_density_2d(baseball$g, baseball$ab)
+\examples{data(baseball, package = "plyr")
+dens <- kernel_density_2d(baseball$g, baseball$ab)
 plot(dens)}

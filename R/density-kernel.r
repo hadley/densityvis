@@ -18,6 +18,7 @@
 #'   otherwise they will be removed with a warning.
 #' @export
 #' @examples
+#' data(baseball, package = "plyr")
 #' dens <- kernel_density_1d(baseball$g)
 #' plot(dens)
 #' plot(kernel_density_1d(baseball$g, bandwidth = 4))
@@ -51,6 +52,7 @@ kernel_density_1d <- function(x, weight = NULL, bandwidth = "bw.nrd", kernel = "
 #'   otherwise they will be removed with a warning.
 #' @export
 #' @examples
+#' data(baseball, package = "plyr")
 #' dens <- kernel_density_2d(baseball$g, baseball$ab)
 #' plot(dens)
 kernel_density_2d <- function(x, y, weight = NULL, xbandwidth = "bw.nrd", ybandwidth = "bw.nrd", na.rm = FALSE) {

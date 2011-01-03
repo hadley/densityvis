@@ -27,4 +27,5 @@ otherwise they will be removed with a warning.}
 \examples{plot(hex_bin(runif(1e4), runif(1e4)))
 plot(hex_bin(rnorm(1e4), rnorm(1e4)))
 
+data(baseball, package = "plyr")
 bin <- hex_bin(baseball$g, baseball$ab)}

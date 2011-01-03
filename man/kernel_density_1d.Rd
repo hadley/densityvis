@@ -29,7 +29,8 @@ computes the binwidth given the data.}
   \item{na.rm}{If \code{TRUE} missing values will be silently removed, 
 otherwise they will be removed with a warning.}
 }
-\examples{dens <- kernel_density_1d(baseball$g)
+\examples{data(baseball, package = "plyr")
+dens <- kernel_density_1d(baseball$g)
 plot(dens)
 plot(kernel_density_1d(baseball$g, bandwidth = 4))
 plot(kernel_density_1d(baseball$g, bandwidth = 1))}

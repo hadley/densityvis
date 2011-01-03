@@ -48,7 +48,8 @@ deviation 1.}
   \item{na.rm}{If \code{TRUE} missing values will be silently removed, 
 otherwise they will be removed with a warning.}
 }
-\examples{dens <- local_density_1d(baseball$g)
+\examples{data(baseball, package = "plyr")
+dens <- local_density_1d(baseball$g)
 plot(dens)
 
 # nn is like span in loess - it's a proportion
@@ -60,10 +61,10 @@ plot(local_density_1d(baseball$g, nn = 1))
 # when bounded = TRUE assumes that there are no possible values outside
 # of the data range
 plot(local_density_1d(baseball$g, nn = 0.2))
-plot(local_density_1d(baseball$g, nn = 0.2, bounded = T))
+plot(local_density_1d(baseball$g, nn = 0.2, bounded = TRUE))
 
 # When scale = FALSE, the bandwidth is specified in terms of the
 # range of the original data.  When scale = TRUE, the data has been
 # scaled to have sd 1
-plot(local_density_1d(baseball$g, h = 0.5, nn = 0, scale = T))
-plot(local_density_1d(baseball$g, h = 0.5, nn = 0, scale = F))}
+plot(local_density_1d(baseball$g, h = 0.5, nn = 0, scale = TRUE))
+plot(local_density_1d(baseball$g, h = 0.5, nn = 0, scale = FALSE))}

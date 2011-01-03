@@ -35,7 +35,9 @@
 #'   otherwise they will be removed with a warning.
 #' @return a function of a single that returns the density at that location
 #' @seealso "Local Regression and Likelihood," C. Loader.  Springer, 1999.
+#' @export
 #' @examples
+#' data(baseball, package = "plyr")
 #' dens <- local_density_1d(baseball$g)
 #' plot(dens)
 #' 
@@ -48,13 +50,13 @@
 #' # when bounded = TRUE assumes that there are no possible values outside
 #' # of the data range
 #' plot(local_density_1d(baseball$g, nn = 0.2))
-#' plot(local_density_1d(baseball$g, nn = 0.2, bounded = T))
+#' plot(local_density_1d(baseball$g, nn = 0.2, bounded = TRUE))
 #' 
 #' # When scale = FALSE, the bandwidth is specified in terms of the
 #' # range of the original data.  When scale = TRUE, the data has been
 #' # scaled to have sd 1
-#' plot(local_density_1d(baseball$g, h = 0.5, nn = 0, scale = T))
-#' plot(local_density_1d(baseball$g, h = 0.5, nn = 0, scale = F))
+#' plot(local_density_1d(baseball$g, h = 0.5, nn = 0, scale = TRUE))
+#' plot(local_density_1d(baseball$g, h = 0.5, nn = 0, scale = FALSE))
 local_density_1d <- function(x, weight = NULL, scale = TRUE, nn = 0.7, h = 0, kernel = "tcub", degree = 2, bounded = FALSE, na.rm = FALSE) {
   require("locfit")
   
@@ -95,6 +97,7 @@ local_density_1d <- function(x, weight = NULL, scale = TRUE, nn = 0.7, h = 0, ke
 #'   otherwise they will be removed with a warning.
 #' @export
 #' @examples
+#' data(baseball, package = "plyr")
 #' dens <- local_density_2d(baseball$g, baseball$ab)
 #' plot(dens)
 #'
