@@ -4,7 +4,9 @@ Title: Bin data into intervals, rectangles and hexagons.
 Version: 0.0.0
 Author: Hadley Wickham <h.wickham@gmail.com>
 Maintainer: Hadley Wickham <h.wickham@gmail.com>
-Description: 
+Description: Wrap up many ways of estimating density (both
+    discrete and continuous) with a common interface to
+    make use in visualisation packages easier.
 Imports: plyr (>= 1.4)
 Suggests: locfit, scales
 License: MIT
