@@ -37,8 +37,8 @@ are set, each is calculated for each location and the largest is used.
 If \code{scale = TRUE} the unit of this value is standard deviations,
 otherwise, it's in the units of the data.}
   \item{kernel}{Weight function, default is tricubic. Other choices are
-\code{"rect"}, ‘"trwt"’, ‘"tria"’, ‘"epan"’, ‘"bisq"’ and
-‘"gauss"’. Choices may be restricted when derivatives are required;
+\code{"rect"}, '"trwt"', '"tria"', '"epan"', '"bisq"' and
+'"gauss"'. Choices may be restricted when derivatives are required;
 e.g. for confidence bands and some bandwidth selectors.}
   \item{degree}{degree of polynomial used for smoothing}
   \item{bounded}{if \code{TRUE} bounds density to range of data, otherwise

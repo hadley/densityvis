@@ -1,9 +1,19 @@
-#' dhist.
+#' Diagonal cut histogram.
+#'
 #' An another algorithm for computing histogram breaks.  Produces 
 #' irregular bins.
 #'
 #' @author Lorraine Denby
-#' @references \url{http://pubs.research.avayalabs.com/pdfs/ALR-2007-003-paper.pdf}
+#' @seealso
+#'   \url{http://pubs.research.avayalabs.com/pdfs/ALR-2007-003-paper.pdf}
+#' @references L. Denby and C. Mallows. Variations on the histogram. Journal
+#'   of Computational and Graphical Statistics, 18 (1):21-31, 2009.
+#'   URL \url{http://pubs.amstat.org/doi/abs/10.1198/jcgs.2009.0002.}
+#' @param a slope. See paper for details.
+#' @param nbins number of bins. See paper for details.
+#' @param rx range of data, if not taken from data.
+#' @return A function that takes a single parameter, a numeric x specifying
+#'   the data for which breaks are needed, and returns a vector of breaks.
 #' @export
 #' @examples 
 #' hist(mtcars$mpg, breaks=dhist_breaks())

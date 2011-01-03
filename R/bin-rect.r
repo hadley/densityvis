@@ -4,12 +4,12 @@
 #' @param y a numeric vector of y positions
 #' @param weight \code{NULL} or a numeric vector providing weights for each
 #'   observation
-#' @param breaks a break function, or a vector of break points that should
+#' @param xbreaks a break function, or a vector of break points that should
 #'   enclose all x values.
-#' @param breaks a break function, or a vector of break points that should
+#' @param ybreaks a break function, or a vector of break points that should
 #'   enclose all y values.
 #' @param xopen are x intervals open on the \code{"left"} or \code{"right"}.
-#' @param xopen are y intervals open on the \code{"left"} or \code{"right"}.
+#' @param yopen are y intervals open on the \code{"left"} or \code{"right"}.
 #' @param na.rm If \code{TRUE} missing values will be silently removed, 
 #'   otherwise they will be removed with a warning.
 #' @export

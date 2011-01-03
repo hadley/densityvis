@@ -23,8 +23,8 @@
 #'   If \code{scale = TRUE} the unit of this value is standard deviations,
 #'   otherwise, it's in the units of the data.
 #' @param kernel Weight function, default is tricubic. Other choices are
-#'   \code{"rect"}, ‘"trwt"’, ‘"tria"’, ‘"epan"’, ‘"bisq"’ and
-#'   ‘"gauss"’. Choices may be restricted when derivatives are required;
+#'   \code{"rect"}, '"trwt"', '"tria"', '"epan"', '"bisq"' and
+#'   '"gauss"'. Choices may be restricted when derivatives are required;
 #'   e.g. for confidence bands and some bandwidth selectors.
 #' @param degree degree of polynomial used for smoothing
 #' @param bounded if \code{TRUE} bounds density to range of data, otherwise
@@ -85,8 +85,8 @@ local_density_1d <- function(x, weight = NULL, scale = TRUE, nn = 0.7, h = 0, ke
 #' @param scale should x and y positions be scaled independently?  Use
 #'  \code{FALSE} when variables are measured on the same original scale.
 #' @param kernel Weight function, default is tricubic. Other choices are
-#'   \code{"rect"}, ‘"trwt"’, ‘"tria"’, ‘"epan"’, ‘"bisq"’ and
-#'   ‘"gauss"’. Choices may be restricted when derivatives are required;
+#'   \code{"rect"}, '"trwt"', '"tria"', '"epan"', '"bisq"' and
+#'   '"gauss"'. Choices may be restricted when derivatives are required;
 #'   e.g. for confidence bands and some bandwidth selectors.
 #' @param degree degree of polynomial used for smoothing
 #' @param bounded if \code{TRUE} bounds density to range of data, otherwise

@@ -1,5 +1,13 @@
 #' Pick breaks for interval (1d) bins.
 #'
+#' Specify either \code{bins} or \code{binwidth}.
+#'
+#' @param bins Desired number of bins
+#' @param binwidth Desired bin width
+#' @param origin Desired origin of first bin
+#' @param range Range of values to use, if different to range of data.
+#' @return A function that takes a single parameter, a numeric x specifying
+#'   the data for which breaks are needed, and returns a vector of breaks.
 #' @export
 interval_breaks <- function(bins = 20, binwidth = NULL, origin = NULL, range = NULL) {
   
@@ -31,6 +39,8 @@ interval_breaks <- function(bins = 20, binwidth = NULL, origin = NULL, range = N
 #' Pick breaks automatically using Sturges' rule
 #'
 #' @export
+#' @return A function that takes a single parameter, a numeric x specifying
+#'   the data for which breaks are needed, and returns a vector of breaks.
 sturges_breaks <- function() {
   function(x) interval_breaks(nclass.Sturges(x))(x)
 }
@@ -38,6 +48,8 @@ sturges_breaks <- function() {
 #' Pick breaks automatically using Scott's rule
 #'
 #' @export
+#' @return A function that takes a single parameter, a numeric x specifying
+#'   the data for which breaks are needed, and returns a vector of breaks.
 scott_breaks <- function() {
   function(x) interval_breaks(nclass.scott(x))(x)
 }
@@ -45,6 +57,8 @@ scott_breaks <- function() {
 #' Pick breaks automatically using the Freedman-Diaconis rule
 #'
 #' @export
+#' @return A function that takes a single parameter, a numeric x specifying
+#'   the data for which breaks are needed, and returns a vector of breaks.
 fd_breaks <- function() {
   function(x) interval_breaks(nclass.FD(x))(x)
 }

@@ -22,8 +22,8 @@ fraction, the proportion of the total used to compute the density.}
   \item{scale}{should x and y positions be scaled independently?  Use
 \code{FALSE} when variables are measured on the same original scale.}
   \item{kernel}{Weight function, default is tricubic. Other choices are
-\code{"rect"}, ‘"trwt"’, ‘"tria"’, ‘"epan"’, ‘"bisq"’ and
-‘"gauss"’. Choices may be restricted when derivatives are required;
+\code{"rect"}, '"trwt"', '"tria"', '"epan"', '"bisq"' and
+'"gauss"'. Choices may be restricted when derivatives are required;
 e.g. for confidence bands and some bandwidth selectors.}
   \item{degree}{degree of polynomial used for smoothing}
   \item{bounded}{if \code{TRUE} bounds density to range of data, otherwise

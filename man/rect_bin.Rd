@@ -13,12 +13,12 @@
   \item{y}{a numeric vector of y positions}
   \item{weight}{\code{NULL} or a numeric vector providing weights for each
 observation}
-  \item{breaks}{a break function, or a vector of break points that should
+  \item{xbreaks}{a break function, or a vector of break points that should
 enclose all x values.}
-  \item{breaks}{a break function, or a vector of break points that should
+  \item{ybreaks}{a break function, or a vector of break points that should
 enclose all y values.}
   \item{xopen}{are x intervals open on the \code{"left"} or \code{"right"}.}
-  \item{xopen}{are y intervals open on the \code{"left"} or \code{"right"}.}
+  \item{yopen}{are y intervals open on the \code{"left"} or \code{"right"}.}
   \item{na.rm}{If \code{TRUE} missing values will be silently removed, 
 otherwise they will be removed with a warning.}
 }
