@@ -18,6 +18,7 @@
 \item{left}{the left end of the interval}
 \item{right}{the right end of the interval}
 \item{count}{the number of observations in that interval}}
+\seealso{\code{\link{ash_1d}}}
 \arguments{
   \item{x}{a numeric vector of positions}
   \item{weight}{\code{NULL} or a numeric vector providing weights for each

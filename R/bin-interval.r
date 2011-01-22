@@ -18,6 +18,7 @@
 #'   \item{right}{the right end of the interval}
 #'   \item{count}{the number of observations in that interval}
 #' @export
+#' @seealso \code{\link{ash_1d}}
 #' @S3method plot interval_bin
 #' @examples
 #' x <- interval_bin(runif(100))

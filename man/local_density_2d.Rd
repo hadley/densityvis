@@ -34,6 +34,7 @@ otherwise they will be removed with a warning.}
 \examples{data(baseball, package = "plyr")
 dens <- local_density_2d(baseball$g, baseball$ab)
 plot(dens)
+baseball$dens <- dens(baseball$g, baseball$ab)
 
 plot(local_density_2d(baseball$g, baseball$ab, nn = 0.4))
 plot(local_density_2d(baseball$g, baseball$ab, nn = 0.1))
