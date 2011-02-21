@@ -31,7 +31,7 @@ rect_bin <- function(x, y, weight = NULL, xbreaks = interval_breaks(), ybreaks =
   if (is.function(xbreaks)) xbreaks <- xbreaks(data$x)
   if (is.function(ybreaks)) ybreaks <- ybreaks(data$y)
   xbreaks <- adjust_breaks(xbreaks, xopen)
-  ybreaks <- adjust_breaks(xbreaks, yopen)
+  ybreaks <- adjust_breaks(ybreaks, yopen)
   
   xbin <- findInterval(data$x, xbreaks, all.inside = TRUE)
   ybin <- findInterval(data$y, ybreaks, all.inside = TRUE)
@@ -44,8 +44,8 @@ rect_bin <- function(x, y, weight = NULL, xbreaks = interval_breaks(), ybreaks =
     .default = 0, .n = (xn - 1L) * (yn - 1L))
   
   structure(data.frame(
-    top =    rep(ybreaks[-yn], xn - 1), 
-    bottom = rep(ybreaks[-1],  xn - 1), 
+    bottom =    rep(ybreaks[-yn], xn - 1), 
+    top = rep(ybreaks[-1],  xn - 1), 
     left =   rep(xbreaks[-xn], each = yn - 1),
     right =  rep(xbreaks[-1],  each = yn - 1),
     count = count
